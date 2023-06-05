@@ -8,8 +8,16 @@ body {
   main {
     flex: 1 0 auto;
   }
+
+  h1 {
+    font-family: 'Londrina Outline', cursive; 
+    text-align: center;
+    font-size: 150px;
+    
+  }
   
   footer.page-footer {
     padding-top: 0;
     text-align: right;
+   
   }
