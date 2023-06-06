@@ -65,7 +65,7 @@ def add_feeding(request, pet_id):
         new_feeding = form.save(commit=False)
         new_feeding.pet_id = pet_id
         new_feeding.save()
-    return render('feeding', pet_id = pet_id)
+    return redirect('tasks', pet_id = pet_id)
 
 @login_required
 def tasks(request, pet_id):
