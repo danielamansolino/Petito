@@ -10,4 +10,4 @@ Petito is an electronic pet CRUD Django APP.
 
 ## Entity Relationship Diagram
 -Petito electronic pet APP ERD:
-![ERD](petito/static/images/petito.png)
+![ERD](main_app/static/images/petito.png)

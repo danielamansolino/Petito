@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -25,7 +26,7 @@ class Pet(models.Model):
         choices=SPECIES,
         default=SPECIES[0][0]
     )
-    colors = models.CharField (
+    color = models.CharField (
         max_length=1,
         choices=COLORS,
         default=COLORS[0][0]
@@ -37,3 +38,7 @@ class Pet(models.Model):
 
     def __str__(self):
         return f'{self.name} ({self.id})'
+    
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'pet_id': self.id}) 
+    

@@ -3,6 +3,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Pet
 
 # Create your views here.
@@ -30,6 +31,20 @@ def signup(request):
 @login_required
 def petitos_index(request):
     pets = Pet.objects.filter(user=request.user)
-    return render (request, 'petitos/index.html', {
+    return render(request, 'petitos/index.html', {
         'pets': pets 
     })
+
+@login_required
+def petitos_detail(request, pet_id):
+    pet = Pet.objects.get(id=pet_id)
+    return render(request, 'petitos/detail.html', {'pet':pet})
+
+
+class PetCreate(LoginRequiredMixin, CreateView):
+    model = Pet
+    fields = ['name', 'species', 'color', 'bio']
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user  
+        return super().form_valid(form)
