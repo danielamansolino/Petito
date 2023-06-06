@@ -61,3 +61,7 @@ class Feeding(models.Model):
         Pet,
         on_delete=models.CASCADE
     )
+
+    def __str__(self):
+        return f'{self.get_food_display()}'
+# check this function ^^^
