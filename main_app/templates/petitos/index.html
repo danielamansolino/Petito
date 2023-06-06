@@ -11,7 +11,7 @@
           <a href="{% url 'tasks' pet.id %}">
           <span class="card-title">{{ pet.name }}</span>
      
-          <img src="/static/images/{{ pet.species}}{{ pet.color }}.png">
+          <img class="img_small" src="/static/images/{{ pet.species}}{{ pet.color }}.png">
         </a>
           <p>Bio: {{ pet.bio|linebreaks }}
           </p>

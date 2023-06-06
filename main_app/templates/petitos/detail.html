@@ -6,14 +6,14 @@
     <div class="card">
         <div class="card-content">
           <span class="card-title">{{ pet.name }}</span>
-          <img src="/static/images/{{ pet.species}}{{ pet.color }}.png">
+          <img class="img_small" src="/static/images/{{ pet.species}}{{ pet.color }}.png">
           <p>Bio: {{ pet.bio|linebreaks }}
           </p>
           <p>Birthday: {{ pet.age }}</p>
           <p>Owner: {{ pet.user }}</p>
           <div>
-            <p><a href="{% url 'petitos_update' pet.id %}">Edit</a></p>
-            <p><a href="{% url 'petitos_delete' pet.id %}">Abandon</a></p>
+            <a href="{% url 'petitos_update' pet.id %}">Edit</a>
+            <a href="{% url 'petitos_delete' pet.id %}">Abandon</a>
           </div>
           
 
