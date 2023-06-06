@@ -8,4 +8,6 @@ urlpatterns = [
     path('petitos/', views.petitos_index, name='petitos'),
     path('petitos/<int:pet_id>/', views.petitos_detail, name='detail'),
     path('petitos/create/', views.PetCreate.as_view(), name='petitos_create'),
+    path('petitos/<int:pk>/update/', views.PetUpdate.as_view(), name='petitos_update'),
+    path('petitos/<int:pk>/delete/', views.PetDelete.as_view(), name='petitos_delete'), 
 ]

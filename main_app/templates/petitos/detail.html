@@ -11,6 +11,11 @@
           </p>
           <p>Birthday: {{ pet.age }}</p>
           <p>Owner: {{ pet.user }}</p>
+          <div>
+            <p><a href="{% url 'petitos_update' pet.id %}">Edit</a></p>
+            <p><a href="{% url 'petitos_delete' pet.id %}">Abandon</a></p>
+          </div>
+          
 
         </div>
       </div>
