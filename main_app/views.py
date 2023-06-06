@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Pet
+
 # Create your views here.
 
 def home(request):
@@ -22,3 +26,10 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+
+@login_required
+def petitos_index(request):
+    pets = Pet.objects.filter(user=request.user)
+    return render (request, 'petitos/index.html', {
+        'pets': pets 
+    })

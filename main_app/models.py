@@ -3,20 +3,34 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-IMAGES = (
-    ('A', 'Pet A'),
-    ('B', 'Pet B'),
-    ('C', 'Pet C'),
-    ('D', 'Pet D')
+SPECIES = (
+    ('a', 'Unicorn'),
+    ('b', 'Bear'),
+    ('c', 'Cat'),
+    ('d', 'Dinosaur')
+)
+
+COLORS = (
+    ('1', 'Green'),
+    ('2', 'Pink'),
+    ('3', 'Purple'),
+    ('4', 'Grey'),
+    ('5', 'Yellow')
 )
 
 class Pet(models.Model):
     name =models.CharField(max_length=30)
-    image = models.CharField (
+    species = models.CharField (
         max_length=1,
-        choices=IMAGES,
-        default=IMAGES[0][0]
+        choices=SPECIES,
+        default=SPECIES[0][0]
     )
+    colors = models.CharField (
+        max_length=1,
+        choices=COLORS,
+        default=COLORS[0][0]
+    )
+
     bio = models.TextField(max_length=1000)
     age = models.DateField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
