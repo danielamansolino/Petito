@@ -19,14 +19,21 @@ COLORS = (
     ('5', 'Yellow')
 )
 
+FEED = (
+    ('food1', 'Burger'),
+    ('food2', 'KaleSoup'),
+    ('food3', 'Donut'),
+)
+
+
 class Pet(models.Model):
-    name =models.CharField(max_length=30)
-    species = models.CharField (
+    name = models.CharField(max_length=30)
+    species = models.CharField(
         max_length=1,
         choices=SPECIES,
         default=SPECIES[0][0]
     )
-    color = models.CharField (
+    color = models.CharField(
         max_length=1,
         choices=COLORS,
         default=COLORS[0][0]
@@ -38,7 +45,19 @@ class Pet(models.Model):
 
     def __str__(self):
         return f'{self.name} ({self.id})'
-    
+
     def get_absolute_url(self):
-        return reverse('detail', kwargs={'pet_id': self.id}) 
-    
+        return reverse('detail', kwargs={'pet_id': self.id})
+
+
+class Feeding(models.Model):
+    date = models.DateField(auto_now_add=True)
+    food = models.CharField(
+        max_length=6,
+        choices=FEED,
+        default=FEED[0][0]
+    )
+    pet = models.ForeignKey(
+        Pet,
+        on_delete=models.CASCADE
+    )

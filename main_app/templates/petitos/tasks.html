@@ -1,0 +1,27 @@
+<div>
+    <h1>{{ pet.name }}</h1>
+    <img src="/static/images/{{ pet.species}}{{ pet.color }}.png">
+    
+    <form action="{% url 'feeding' pet.id %}" method="POST">
+        {% csrf_token %}
+        {{ feeding_form.as_p }}
+        <input type="submit" class="btn" value="Feed">
+      </form>
+
+    <button>clean</button>
+    <button>play</button>
+    <button>exercise</button>
+    <button>sleep</button>
+</div>
+
+<div>
+    <a href="{% url 'detail' pet.id %}">details</a>
+</div>
+
+<script>
+    const selectEl = document.getElementById('id_feed');
+    M.FormSelect.init(selectEl);
+  </script>
+
+
+

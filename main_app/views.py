@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Pet
+from .forms import FeedingForm
 
 # Create your views here.
 
@@ -56,3 +57,18 @@ class PetUpdate(LoginRequiredMixin, UpdateView):
 class PetDelete(LoginRequiredMixin, DeleteView):
     model = Pet
     success_url = '/petitos'
+
+@login_required
+def add_feeding(request, pet_id):
+    form = FeedingForm(request.POST)
+    if form.is_valid():
+        new_feeding = form.save(commit=False)
+        new_feeding.pet_id = pet_id
+        new_feeding.save()
+    return render('feeding', pet_id = pet_id)
+
+@login_required
+def tasks(request, pet_id):
+    pet = Pet.objects.get(id=pet_id)
+    feeding_form = FeedingForm()
+    return render(request, 'petitos/tasks.html', {'pet':pet, 'feeding_form': feeding_form})
