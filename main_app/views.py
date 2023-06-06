@@ -48,3 +48,11 @@ class PetCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user  
         return super().form_valid(form)
+    
+class PetUpdate(LoginRequiredMixin, UpdateView):
+    model = Pet
+    fields = ['color', 'bio']
+
+class PetDelete(LoginRequiredMixin, DeleteView):
+    model = Pet
+    success_url = '/petitos'
