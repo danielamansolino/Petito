@@ -63,5 +63,5 @@ class Feeding(models.Model):
     )
 
     def __str__(self):
-        return f'{self.get_food_display()}'
+        return f'{self.food}'
 # check this function ^^^
