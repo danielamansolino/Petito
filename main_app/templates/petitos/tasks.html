@@ -1,26 +1,41 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div>
+<br><br>
+<div class="card center-align">
+    <br>
     <h1>{{ pet.name }}</h1>
+    <a  href="{% url 'detail' pet.id %}">Birth Certificate</a><br>
     <img class="img_big" src="/static/images/{{ pet.species}}{{ pet.color }}.png">
     <img class="img_small" src="/static/images/{{ pet.feeding_set.last }}.gif">
-    
-    <form action="{% url 'feeding' pet.id %}" method="POST">
-        {% csrf_token %}
-        {{ feeding_form.as_p }}
-        <input type="submit" class="btn" value="feed">
-      </form>
-
-    <button>clean</button>
-    <button>play</button>
-    <button>exercise</button>
-    <button>sleep</button>
+    <div class="row center-align">
+      <div class="col s2">
+      <form action="{% url 'feeding' pet.id %}" method="POST">
+          {% csrf_token %}
+          {{ feeding_form.as_p }}
+          <input type="submit" class="btn blue" value="feed">
+      </form><br><br><br>
+      </div>
+      <div class="col s2">
+        <p>form</p>
+            <input type="submit" class="btn blue" value="clean">
+      </div>
+      <div class="col s2">
+        <p>form</p>
+        <input type="submit" class="btn blue" value="play">
+      </div>
+      <div class="col s2">
+        <p>form</p>
+        <input type="submit" class="btn blue" value="exercise">
+      </div>
+      <div class="col s2">
+        <p>form</p>
+        <input type="submit" class="btn blue" value="sleep">
+      </div>
+    </div>
 </div>
 
-<div>
-    <a href="{% url 'detail' pet.id %}">details</a>
-</div>
+
 
 <script>
     const food = document.getElementById('id_food');

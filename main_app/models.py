@@ -38,7 +38,6 @@ class Pet(models.Model):
         choices=COLORS,
         default=COLORS[0][0]
     )
-
     bio = models.TextField(max_length=1000)
     age = models.DateField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

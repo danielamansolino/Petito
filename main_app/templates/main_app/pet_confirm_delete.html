@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
   <h1>Abandon {{ object.name }}</h1>
 
   <h4>Are you sure you want to send {{ object.name }} to the pound???</h4>
@@ -10,4 +11,5 @@
     <input type="submit" value="Yes - Bye Bye!" class="btn">
     <a href="{% url 'detail' pet.id %}">Cancel</a>
   </form>
+
 {% endblock %}
