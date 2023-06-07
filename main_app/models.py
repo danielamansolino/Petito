@@ -27,6 +27,24 @@ FEED = (
     ('food3', 'Donut'),
 )
 
+CLEAN = (
+    ('clean1', 'clean poop'),
+    ('clean2', 'bathe'),
+)
+
+LOVE = (
+    ('love1', 'give a hug'),
+    ('love2', 'give kisses'),
+)
+
+MOVE = (
+    ('move1', 'play fetch'),
+    ('move2', 'go for a walk'),
+)
+
+SLEEP = (
+    ('sleep1', 'take a nap'),
+)
 
 class Pet(models.Model):
     name = models.CharField(max_length=30)
@@ -68,4 +86,66 @@ class Feeding(models.Model):
 
     def __str__(self):
         return f'{self.food}'
-# check this function ^^^
+
+
+class Cleaning(models.Model):
+    date = models.DateField(auto_now_add=True)
+    cleanup = models.CharField(
+        max_length=6,
+        choices=CLEAN,
+        default=CLEAN[0][0]
+    )
+    pet = models.ForeignKey(
+        Pet,
+        on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        return f'{self.cleanup}'
+
+class Loving(models.Model):
+    date = models.DateField(auto_now_add=True)
+    love = models.CharField(
+        max_length=6,
+        choices=LOVE,
+        default=LOVE[0][0]
+    )
+    pet = models.ForeignKey(
+        Pet,
+        on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        return f'{self.love}'
+    
+
+class Moving(models.Model):
+    date = models.DateField(auto_now_add=True)
+    move = models.CharField(
+        max_length=6,
+        choices=MOVE,
+        default=MOVE[0][0]
+    )
+    pet = models.ForeignKey(
+        Pet,
+        on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        return f'{self.move}'
+    
+
+class Sleeping(models.Model):
+    date = models.DateField(auto_now_add=True)
+    sleep = models.CharField(
+        max_length=6,
+        choices=SLEEP,
+        default=SLEEP[0][0]
+    )
+    pet = models.ForeignKey(
+        Pet,
+        on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        return f'{self.sleep}'
