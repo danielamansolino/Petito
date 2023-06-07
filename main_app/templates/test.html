@@ -1,11 +1,12 @@
 
     <div class="row center-align">
       <div class="col s2">
-      <form action="{% url 'feeding' pet.id %}" method="POST">
+      <!-- <form action="{% url 'feeding' pet.id %}" method="POST">
           {% csrf_token %}
           {{ feeding_form.as_p }}
-          <input type="submit" class="btn blue" value="feed">
-      </form><br><br><br>
+         <input type="submit" class="btn blue" value="feed">
+      </form><br><br><br> -->
+      <a href="{% url 'detail' pet.id %}" class="btn blue">FEED</a>
       </div>
 
       <div class="col s2">
