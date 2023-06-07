@@ -7,6 +7,7 @@
     <br>
     <h1>{{ pet.name }}</h1>
     <a  href="{% url 'detail' pet.id %}">Birth Certificate</a><br>
+
     <img class="img_big" src="/static/images/{{ pet.species}}{{ pet.color }}.png">   
     <br>
     {% if pet.fed_for_today %}
@@ -15,6 +16,7 @@
     <div class="card-panel yellow-text text-darken-2 black center-align">I am starving!!! </div>
     {% endif %}    
 {% include 'test.html' %} 
+
 
 
 {% endblock %}
