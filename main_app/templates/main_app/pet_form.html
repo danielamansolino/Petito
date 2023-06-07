@@ -1,18 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  {% if object %}
-  <hi>Edit {{ object.name }}</hi>
-  {% else %}
-  <h1>Adopt a Petito</h1>
-  {% endif %}
-  <form action="" method="POST">
-    {% csrf_token %}
-    <table>
-      {{ form.as_table }}
-    </table>
-    <input type="submit" value="Submit!" class="btn">
-  </form>
+{% if object %}
+<hi>Edit {{ object.name }}</hi>
+{% else %}
+<h1>Adopt a Petito</h1>
+  <img class="img_small" src="/static/images/a1.png">
+  <img class="img_small" src="/static/images/b2.png">
+  <img class="img_small" src="/static/images/c3.png">
+  <img class="img_small" src="/static/images/d4.png">
+  <img class="img_small" src="/static/images/a3.png">
+  <img class="img_small" src="/static/images/b5.png">
+{% endif %}
+<form action="" method="POST">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <input type="submit" value="Submit!" class="btn">
+</form>
 
 <script>
 
