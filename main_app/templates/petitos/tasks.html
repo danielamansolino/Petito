@@ -8,6 +8,12 @@
     <a  href="{% url 'detail' pet.id %}">Birth Certificate</a><br>
     <img class="img_big" src="/static/images/{{ pet.species}}{{ pet.color }}.png">
     <img class="img_small" src="/static/images/{{ pet.feeding_set.last }}.gif">
+    <br>
+    {% if pet.fed_for_today %}
+        <div class="card-panel yellow-text text-darken-2 black center-align">I am smelly! </div>
+    {% else %}
+    <div class="card-panel yellow-text text-darken-2 black center-align">I am starving!!! </div>
+    {% endif %}
     <div class="row center-align">
       <div class="col s2">
       <form action="{% url 'feeding' pet.id %}" method="POST">
