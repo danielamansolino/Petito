@@ -8,19 +8,27 @@
       </form><br><br><br>
       </div>
       <div class="col s2">
-        <p>form</p>
+        <form action="{% url 'cleaning' pet.id %}" method="POST">
+          {% csrf_token %}
+          {{ cleaning_form.as_p }}
             <input type="submit" class="btn blue" value="clean">
       </div>
       <div class="col s2">
-        <p>form</p>
+        <form action="{% url 'loving' pet.id %}" method="POST">
+          {% csrf_token %}
+          {{ loving_form.as_p }}
+        <input type="submit" class="btn blue" value="love">
+      </div>
+      <div class="col s2">
+        <form action="{% url 'moving' pet.id %}" method="POST">
+          {% csrf_token %}
+          {{ moving_form.as_p }}
         <input type="submit" class="btn blue" value="play">
       </div>
       <div class="col s2">
-        <p>form</p>
-        <input type="submit" class="btn blue" value="exercise">
-      </div>
-      <div class="col s2">
-        <p>form</p>
+        <form action="{% url 'sleeping' pet.id %}" method="POST">
+          {% csrf_token %}
+          {{ sleeping_form.as_p }}
         <input type="submit" class="btn blue" value="sleep">
       </div>
     </div>    
@@ -30,5 +38,13 @@
 
 <script>
     const food = document.getElementById('id_food');
+    const clean = document.getElementById('id_clean');
+    const love = document.getElementById('id_love');
+    const move = document.getElementById('id_move');
+    const sleep = document.getElementById('id_sleep');
     M.FormSelect.init(food);
+    M.FormSelect.init(clean);
+    M.FormSelect.init(love);
+    M.FormSelect.init(move);
+    M.FormSelect.init(sleep);
 </script>
