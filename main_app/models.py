@@ -38,8 +38,8 @@ LOVE = (
 )
 
 MOVE = (
-    ('love1', 'play fetch'),
-    ('love3', 'go for a walk'),
+    ('move1', 'play fetch'),
+    ('move2', 'go for a walk'),
 )
 
 SLEEP = (
@@ -90,7 +90,7 @@ class Feeding(models.Model):
 
 class Cleaning(models.Model):
     date = models.DateField(auto_now_add=True)
-    clean = models.CharField(
+    cleanup = models.CharField(
         max_length=6,
         choices=CLEAN,
         default=CLEAN[0][0]
@@ -101,7 +101,7 @@ class Cleaning(models.Model):
     )
 
     def __str__(self):
-        return f'{self.clean}'
+        return f'{self.cleanup}'
 
 class Loving(models.Model):
     date = models.DateField(auto_now_add=True)

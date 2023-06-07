@@ -9,7 +9,7 @@ class FeedingForm(ModelForm):
 class CleaningForm(ModelForm):
   class Meta:
     model = Cleaning
-    fields = ['clean']
+    fields = ['cleanup']
     
 
 class LovingForm(ModelForm):

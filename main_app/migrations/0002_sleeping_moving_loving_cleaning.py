@@ -43,7 +43,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('date', models.DateField(auto_now_add=True)),
-                ('clean', models.CharField(choices=[('clean1', 'clean poop'), ('clean2', 'bathe')], default='clean1', max_length=6)),
+                ('cleanup', models.CharField(choices=[('clean1', 'clean poop'), ('clean2', 'bathe')], default='clean1', max_length=6)),
                 ('pet', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main_app.pet')),
             ],
         ),

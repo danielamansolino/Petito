@@ -118,32 +118,48 @@ def tasks(request, pet_id):
 def task_feeding(request, pet_id):
     pet = Pet.objects.get(id=pet_id)
     feeding_form = FeedingForm()
-    return render(request, 'petitos/task_feeding.html', {'pet':pet, 'feeding_form': feeding_form})
-
+    cleaning_form = CleaningForm()
+    loving_form = LovingForm()
+    moving_form = MovingForm()
+    sleeping_form = SleepingForm()
+    return render(request, 'petitos/task_feeding.html', {'pet':pet, 'feeding_form': feeding_form, 'cleaning_form': cleaning_form, 'loving_form': loving_form, 'moving_form': moving_form, 'sleeping_form': sleeping_form })
 
 @login_required
 def task_cleaning(request, pet_id):
     pet = Pet.objects.get(id=pet_id)
+    feeding_form = FeedingForm()
     cleaning_form = CleaningForm()
-    return render(request, 'petitos/task_cleaning.html', {'pet':pet, 'cleaning_form': cleaning_form})
-
+    loving_form = LovingForm()
+    moving_form = MovingForm()
+    sleeping_form = SleepingForm()
+    return render(request, 'petitos/task_cleaning.html', {'pet':pet, 'feeding_form': feeding_form, 'cleaning_form': cleaning_form, 'loving_form': loving_form, 'moving_form': moving_form, 'sleeping_form': sleeping_form })
 
 @login_required
 def task_loving(request, pet_id):
     pet = Pet.objects.get(id=pet_id)
+    feeding_form = FeedingForm()
+    cleaning_form = CleaningForm()
     loving_form = LovingForm()
-    return render(request, 'petitos/task_loving.html', {'pet':pet, 'loving_form': loving_form})
-
+    moving_form = MovingForm()
+    sleeping_form = SleepingForm()
+    return render(request, 'petitos/task_loving.html', {'pet':pet, 'feeding_form': feeding_form, 'cleaning_form': cleaning_form, 'loving_form': loving_form, 'moving_form': moving_form, 'sleeping_form': sleeping_form })
 
 @login_required
 def task_moving(request, pet_id):
     pet = Pet.objects.get(id=pet_id)
+    feeding_form = FeedingForm()
+    cleaning_form = CleaningForm()
+    loving_form = LovingForm()
     moving_form = MovingForm()
-    return render(request, 'petitos/task_moving.html', {'pet':pet, 'moving_form': moving_form})
-
+    sleeping_form = SleepingForm()
+    return render(request, 'petitos/task_moving.html', {'pet':pet, 'feeding_form': feeding_form, 'cleaning_form': cleaning_form, 'loving_form': loving_form, 'moving_form': moving_form, 'sleeping_form': sleeping_form })
 
 @login_required
 def task_sleeping(request, pet_id):
     pet = Pet.objects.get(id=pet_id)
+    feeding_form = FeedingForm()
+    cleaning_form = CleaningForm()
+    loving_form = LovingForm()
+    moving_form = MovingForm()
     sleeping_form = SleepingForm()
-    return render(request, 'petitos/task_sleeping.html', {'pet':pet, 'sleeping_form': sleeping_form})
+    return render(request, 'petitos/task_sleeping.html', {'pet':pet, 'feeding_form': feeding_form, 'cleaning_form': cleaning_form, 'loving_form': loving_form, 'moving_form': moving_form, 'sleeping_form': sleeping_form })
