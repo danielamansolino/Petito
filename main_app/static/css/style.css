@@ -3,6 +3,8 @@ body {
   min-height: 100vh;
   flex-direction: column;
   background-color: darkgray;
+  font-family: 'VT323', monospace;
+  font-size: 30px;
 }
 
 main {

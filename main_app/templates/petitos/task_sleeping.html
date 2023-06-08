@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
 <br><br>
 <div class="card center-align">
     <br>
@@ -9,8 +8,13 @@
     <a  href="{% url 'detail' pet.id %}">Birth Certificate</a><br>
     <img class="img_big" src="/static/images/{{ pet.species}}{{ pet.color }}.png">
     <img class="img_small" src="/static/images/{{ pet.sleeping_set.last }}.gif">    
-    
-{% include 'test.html' %} 
+    <br>
+    {% if pet.sleep_for_today %}
+        <div class="card-panel yellow-text text-darken-2 black center-align">I am hungry! </div>
+        {% else %}
+        <div class="card-panel yellow-text text-darken-2 black center-align">I am sleepy </div>
+        {% endif %}
+    {% include 'test.html' %} 
 
 
 {% endblock %}
