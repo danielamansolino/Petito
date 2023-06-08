@@ -33,6 +33,15 @@ h1 {
   height: auto;
 }
 
+
+.img_med {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  width: 150px;
+  height: auto;
+}
+
 footer.page-footer {
   padding-top: 0;
   text-align: right;
