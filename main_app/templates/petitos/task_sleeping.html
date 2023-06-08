@@ -6,18 +6,10 @@
     <div class="lights-out"></div>
     <br>
     <h1>{{ pet.name }}</h1>
-    <a  href="{% url 'detail' pet.id %}">Birth Certificate</a><br>
+    <a href="{% url 'detail' pet.id %}">Birth Certificate</a><br>
     <img class="img_big" src="/static/images/{{ pet.species}}{{ pet.color }}.png">
-    <img class="img_small" src="/static/images/{{ pet.sleeping_set.last }}.gif">    
+    <img class="img_small" src="/static/images/{{ pet.sleeping_set.last }}.gif">
     <br>
-    <div class="speech top">
-    {% if pet.sleep_for_today %}
-        <div class="card-panel yellow-text text-darken-2 black center-align">I am hungry! </div>
-        {% else %}
-        <div class="card-panel yellow-text text-darken-2 black center-align">I am sleepy </div>
-        {% endif %}
-    </div>
-        {% include 'base_task.html' %} 
+    {% include 'base_task.html' %}
 
-
-{% endblock %}
+    {% endblock %}
