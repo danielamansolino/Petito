@@ -83,6 +83,8 @@ class Pet(models.Model):
     def sleep_for_today(self):
         return self.sleeping_set.filter(date=date.today()).count() >= len(SLEEP)
     
+    class Meta:
+        ordering = ['-age']
 
 
 class Feeding(models.Model):

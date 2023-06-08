@@ -10,14 +10,7 @@
 
     <img class="img_big" src="/static/images/{{ pet.species}}{{ pet.color }}.png">   
     <br>
-    <div class="speech top">
-    {% if pet.fed_for_today %}
-        <div class="card-panel yellow-text text-darken-2 black center-align">I am smelly! </div>
-    {% else %}
-    <div class="card-panel yellow-text text-darken-2 black center-align">I am starving!!! </div>
-
-    {% endif %}    
-</div>
+   
 
 {% include 'base_task.html' %} 
 
