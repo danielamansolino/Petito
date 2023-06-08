@@ -22,7 +22,9 @@
         </div>
         <!-- Insert photo markup below this comment -->
         {% for photo in pet.photo_set.all %}
-          <img class="responsive-img card-panel" src="{{photo.url}}">
+        <a href="{{photo.url}}">
+          <img class="thumbnail" src="{{photo.url}}">
+        </a>  
         {% empty %}
           <div class="card-panel teal-text center-align">No Photos Uploaded</div>
         {% endfor %}
