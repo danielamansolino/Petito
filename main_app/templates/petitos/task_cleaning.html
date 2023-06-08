@@ -6,11 +6,11 @@
 <div class="card center-align">
     <br>
     <h1>{{ pet.name }}</h1>
-    <a  href="{% url 'detail' pet.id %}">Birth Certificate</a><br>
+    <a href="{% url 'detail' pet.id %}">Birth Certificate</a><br>
     <img class="img_big" src="/static/images/{{ pet.species}}{{ pet.color }}.png">
-    <img class="img_small" src="/static/images/{{ pet.cleaning_set.last }}.gif">    
+    <img class="img_small" src="/static/images/{{ pet.cleaning_set.last }}.gif">
     <br>
-    {% include 'base_task.html' %} 
+    {% include 'base_task.html' %}
 
 
-{% endblock %}
+    {% endblock %}

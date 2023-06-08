@@ -5,20 +5,20 @@
 
 {% for pet in pets %}
 
-    <div class="card">
-        <div class="card-content">
-          <a href="{% url 'tasks' pet.id %}">
-          <span class="card-title">{{ pet.name }}</span>
-     
-          <img class="img_small" src="/static/images/{{ pet.species}}{{ pet.color }}.png">
-        </a>
-          <p>Bio: {{ pet.bio|linebreaks }}
-          </p>
-          <p>Birthday: {{ pet.age }}</p>
-          <p>Owner: {{ pet.user }}</p>
+<div class="card">
+  <div class="card-content">
+    <a href="{% url 'tasks' pet.id %}">
+      <span class="card-title">{{ pet.name }}</span>
 
-        </div>
-      </div>
+      <img class="img_small" src="/static/images/{{ pet.species}}{{ pet.color }}.png">
+    </a>
+    <p>Bio: {{ pet.bio|linebreaks }}
+    </p>
+    <p>Birthday: {{ pet.age }}</p>
+    <p>Owner: {{ pet.user }}</p>
+
+  </div>
+</div>
 </a>
 
 {% endfor %}
