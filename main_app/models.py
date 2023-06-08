@@ -70,6 +70,19 @@ class Pet(models.Model):
     
     def fed_for_today(self):
         return self.feeding_set.filter(date=date.today()).count() >= len(FEED)
+    
+    def clean_for_today(self):
+        return self.cleaning_set.filter(date=date.today()).count() >= len(CLEAN)
+    
+    def love_for_today(self):
+        return self.loving_set.filter(date=date.today()).count() >= len(LOVE)
+    
+    def play_for_today(self):
+        return self.moving_set.filter(date=date.today()).count() >= len(MOVE)
+    
+    def sleep_for_today(self):
+        return self.sleeping_set.filter(date=date.today()).count() >= len(SLEEP)
+    
 
 
 class Feeding(models.Model):

@@ -9,8 +9,13 @@
     <a  href="{% url 'detail' pet.id %}">Birth Certificate</a><br>
     <img class="img_big" src="/static/images/{{ pet.species}}{{ pet.color }}.png">
     <img class="img_small" src="/static/images/{{ pet.loving_set.last }}.gif">    
-    
-{% include 'test.html' %} 
+    <br>
+    {% if pet.love_for_today %}
+        <div class="card-panel yellow-text text-darken-2 black center-align">I want to play! </div>
+        {% else %}
+        <div class="card-panel yellow-text text-darken-2 black center-align">I need some love! </div>
+    {% endif %}
+    {% include 'test.html' %} 
 
 
 {% endblock %}
