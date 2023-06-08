@@ -33,6 +33,13 @@ h1 {
   height: auto;
 }
 
+.thumbnail {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  max-width: 250px;
+  max-height: 250px;
+}
 
 .img_med {
   image-rendering: pixelated;
