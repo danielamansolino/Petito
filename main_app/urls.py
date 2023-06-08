@@ -21,5 +21,6 @@ urlpatterns = [
     path('petitos/<int:pet_id>/task_loving/', views.task_loving, name='task_loving'),
     path('petitos/<int:pet_id>/task_moving/', views.task_moving, name='task_moving'),
     path('petitos/<int:pet_id>/task_sleeping/', views.task_sleeping, name='task_sleeping'),
+    path('petitos/<int:pet_id>/add_photo/', views.add_photo, name='add_photo'),
 
 ]

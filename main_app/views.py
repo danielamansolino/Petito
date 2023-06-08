@@ -1,10 +1,13 @@
+import os
+import uuid
+import boto3
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Pet
+from .models import Pet, Photo
 from .forms import FeedingForm, CleaningForm, LovingForm, MovingForm, SleepingForm
 
 # Create your views here.
@@ -163,3 +166,24 @@ def task_sleeping(request, pet_id):
     moving_form = MovingForm()
     sleeping_form = SleepingForm()
     return render(request, 'petitos/task_sleeping.html', {'pet':pet, 'feeding_form': feeding_form, 'cleaning_form': cleaning_form, 'loving_form': loving_form, 'moving_form': moving_form, 'sleeping_form': sleeping_form })
+
+@login_required
+def add_photo(request, pet_id):
+    # photo-file will be the "name" attribute on the <input type="file">
+    photo_file = request.FILES.get('photo-file', None)
+    if photo_file:
+        s3 = boto3.client('s3')
+        # need a unique "key" for S3 / needs image file extension too
+        key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+        # just in case something goes wrong
+        try:
+            bucket = os.environ['S3_BUCKET']
+            s3.upload_fileobj(photo_file, bucket, key)
+            # build the full url string
+            url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
+            # we can assign to pet_id or pet (if you have a pet object)
+            Photo.objects.create(url=url, pet_id=pet_id)
+        except Exception as e:
+            print('An error occurred uploading file to S3')
+            print(e)
+    return redirect('detail', pet_id=pet_id)
