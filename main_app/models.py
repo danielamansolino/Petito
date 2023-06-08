@@ -22,9 +22,9 @@ COLORS = (
 )
 
 FEED = (
-    ('food1', 'Burger'),
-    ('food2', 'KaleSoup'),
-    ('food3', 'Donut'),
+    ('food1', 'feed burger'),
+    ('food2', 'feed kale soup'),
+    ('food3', 'feed donut'),
 )
 
 CLEAN = (
