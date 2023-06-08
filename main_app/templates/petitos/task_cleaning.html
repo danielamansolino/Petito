@@ -10,12 +10,14 @@
     <img class="img_big" src="/static/images/{{ pet.species}}{{ pet.color }}.png">
     <img class="img_small" src="/static/images/{{ pet.cleaning_set.last }}.gif">    
     <br>
+    <div class="speech top">
     {% if pet.clean_for_today %}
         <div class="card-panel yellow-text text-darken-2 black center-align">I need some love! </div>
         {% else %}
         <div class="card-panel yellow-text text-darken-2 black center-align">I am smelly! </div>
     {% endif %}
-    {% include 'test.html' %} 
+</div>
+    {% include 'base_task.html' %} 
 
 
 {% endblock %}

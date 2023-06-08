@@ -5,12 +5,13 @@
 <hi>Edit {{ object.name }}</hi>
 {% else %}
 <h1>Adopt a Petito</h1>
+<div class="center-align">
   <img class="img_small" src="/static/images/a1.png">
   <img class="img_small" src="/static/images/b2.png">
   <img class="img_small" src="/static/images/c3.png">
   <img class="img_small" src="/static/images/d4.png">
-  <img class="img_small" src="/static/images/a3.png">
   <img class="img_small" src="/static/images/b5.png">
+</div>
 {% endif %}
 <form action="" method="POST">
   {% csrf_token %}
