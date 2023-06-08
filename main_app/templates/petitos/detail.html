@@ -3,24 +3,45 @@
 
 <h1>{{ pet.name }}</h1>
 
-    <div class="card">
-        <div class="card-content">
-          <a href="{% url 'tasks' pet.id %}">
-          <span class="card-title">{{ pet.name }}</span>
-          <img class="img_small" src="/static/images/{{ pet.species}}{{ pet.color }}.png">
-          </a>
-          <p>Bio: {{ pet.bio|linebreaks }}
-          </p>
-          <p>Birthday: {{ pet.age }}</p>
-          <p>Owner: {{ pet.user }}</p>
-          <div>
-            <a href="{% url 'petitos_update' pet.id %}">Edit</a>
-            <a href="{% url 'petitos_delete' pet.id %}">Abandon</a>
+<div class="row center-align">
+  <div class="card-content">
+    <div class="col s12">
+      <div class="col s4">
+        <div class="card">
+          <div class="card-content">
+            <a href="{% url 'tasks' pet.id %}">
+              <span class="card-title">{{ pet.name }}</span>
+              <img class="img_big" src="/static/images/{{ pet.species}}{{ pet.color }}.png">
+            </a>
           </div>
-          
-
         </div>
       </div>
-</a>
+      <div class="col s4">
+        <div class="card">
+          <div class="card-content">
+            <p>Bio: {{ pet.bio|linebreaks }}
+            </p>
+            <p>Birthday: {{ pet.age }}</p>
+            <p>Owner: {{ pet.user }}</p>
+            <div>
+              <a href="{% url 'petitos_update' pet.id %}">Edit</a>
+              <a href="{% url 'petitos_delete' pet.id %}">Abandon</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s4">
+        <div class="card">
+          <div class="card-content">
+            add photo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </a>
+  </div>
+
+</div>
 
 {% endblock %}

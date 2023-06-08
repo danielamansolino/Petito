@@ -1,57 +1,81 @@
+<div class="speech top">
 
-    <div class="row center-align">
-      <div class="col s2">
-        <form action="{% url 'feeding' pet.id %}" method="POST">
-          {% csrf_token %}
-          {{ feeding_form.as_p }}
-         <input type="submit" class="btn blue" value="feed">
-      </form><br><br><br>
-      </div>
+  {% if not pet.fed_for_today %}
+  <div class="card-panel yellow-text text-darken-2 black center-align"> I'm starving!! I could really use a bite to
+    eat. </div>
 
-      <div class="col s2">
-        <form action="{% url 'cleaning' pet.id %}" method="POST">
-          {% csrf_token %}
-          {{ cleaning_form.as_p }}
-            <input type="submit" class="btn blue" value="clean">
-          </form><br><br><br>
-      </div>
+  {% elif not pet.play_for_today %}
+  <div class="card-panel yellow-text text-darken-2 black center-align">I'm booored, will you play with me?
+  </div>
 
-      <div class="col s2">
-        <form action="{% url 'loving' pet.id %}" method="POST">
-          {% csrf_token %}
-          {{ loving_form.as_p }}
-        <input type="submit" class="btn blue" value="love">
-      </form><br><br><br>
-      </div>
+  {% elif not pet.clean_for_today %}
+  <div class="card-panel yellow-text text-darken-2 black center-align">What's that awful smell? Oh... it's me.
+  </div>
 
-      <div class="col s3">
-        <form action="{% url 'moving' pet.id %}" method="POST">
-          {% csrf_token %}
-          {{ moving_form.as_p }}
-        <input type="submit" class="btn blue" value="play">
-      </form><br><br><br>
-      </div>
-      <div class="col s2">
-        <form action="{% url 'sleeping' pet.id %}" method="POST">
-          {% csrf_token %}
-          {{ sleeping_form.as_p }}
-        <input type="submit" class="btn blue" value="sleep">
-      </form><br><br><br>
-      </div>
-    </div>    
+  {% elif not pet.love_for_today %}
+  <div class="card-panel yellow-text text-darken-2 black center-align">I need some affection! I need it now!</div>
+
+  {% elif not pet.sleep_for_today %}
+  <div class="card-panel yellow-text text-darken-2 black center-align">zZz...so...sleepy...zZz
+  </div>
+  {% else %}
+  <div class="card-panel yellow-text text-darken-2 black center-align">^_^
+  </div>
+  {% endif %}
 </div>
 
 
+<div class="row center-align">
+  <div class="col s2">
+    <form action="{% url 'feeding' pet.id %}" method="POST">
+      {% csrf_token %}
+      {{ feeding_form.as_p }}
+      <input type="submit" class="btn blue" value="feed">
+    </form><br><br><br>
+  </div>
+
+  <div class="col s2">
+    <form action="{% url 'cleaning' pet.id %}" method="POST">
+      {% csrf_token %}
+      {{ cleaning_form.as_p }}
+      <input type="submit" class="btn blue" value="clean">
+    </form><br><br><br>
+  </div>
+
+  <div class="col s2">
+    <form action="{% url 'loving' pet.id %}" method="POST">
+      {% csrf_token %}
+      {{ loving_form.as_p }}
+      <input type="submit" class="btn blue" value="love">
+    </form><br><br><br>
+  </div>
+
+  <div class="col s2">
+    <form action="{% url 'moving' pet.id %}" method="POST">
+      {% csrf_token %}
+      {{ moving_form.as_p }}
+      <input type="submit" class="btn blue" value="play">
+    </form><br><br><br>
+  </div>
+  <div class="col s2">
+    <form action="{% url 'sleeping' pet.id %}" method="POST">
+      {% csrf_token %}
+      {{ sleeping_form.as_p }}
+      <input type="submit" class="btn blue" value="sleep">
+    </form><br><br><br>
+  </div>
+</div>
+</div>
 
 <script>
-    const food = document.getElementById('id_food');
-    const cleanup = document.getElementById('id_cleanup');
-    const love = document.getElementById('id_love');
-    const move = document.getElementById('id_move');
-    const sleep = document.getElementById('id_sleep');
-    M.FormSelect.init(food);
-    M.FormSelect.init(cleanup);
-    M.FormSelect.init(love);
-    M.FormSelect.init(move);
-    M.FormSelect.init(sleep);
+  const food = document.getElementById('id_food');
+  const cleanup = document.getElementById('id_cleanup');
+  const love = document.getElementById('id_love');
+  const move = document.getElementById('id_move');
+  const sleep = document.getElementById('id_sleep');
+  M.FormSelect.init(food);
+  M.FormSelect.init(cleanup);
+  M.FormSelect.init(love);
+  M.FormSelect.init(move);
+  M.FormSelect.init(sleep);
 </script>
