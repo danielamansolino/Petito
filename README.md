@@ -16,7 +16,6 @@ Petito is an electronic pet CRUD Django APP. Users can create pixel pets, which 
 ![Gif-1](main_app/static/images/screen1.gif)
 
 ![Gif-2](main_app/static/images/screen2.gif)
-
 # 3. Technologies Used: 
 Python, Django, AWS s3, Aseprite, Javascript, HTML, CSS, Materialize, PostgreSQL, Neon
 
