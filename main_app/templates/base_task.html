@@ -24,9 +24,8 @@
   {% endif %}
 </div>
 
-
 <div class="row center-align">
-  <div class="col s2">
+  <div class="col s2 s5ths">
     <form action="{% url 'feeding' pet.id %}" method="POST">
       {% csrf_token %}
       {{ feeding_form.as_p }}
@@ -34,7 +33,7 @@
     </form><br><br><br>
   </div>
 
-  <div class="col s2">
+  <div class="col s2 s5ths">
     <form action="{% url 'cleaning' pet.id %}" method="POST">
       {% csrf_token %}
       {{ cleaning_form.as_p }}
@@ -42,7 +41,7 @@
     </form><br><br><br>
   </div>
 
-  <div class="col s2">
+  <div class="col s2 s5ths">
     <form action="{% url 'loving' pet.id %}" method="POST">
       {% csrf_token %}
       {{ loving_form.as_p }}
@@ -50,14 +49,14 @@
     </form><br><br><br>
   </div>
 
-  <div class="col s2">
+  <div class="col s2 s5ths">
     <form action="{% url 'moving' pet.id %}" method="POST">
       {% csrf_token %}
       {{ moving_form.as_p }}
       <input type="submit" class="btn blue" value="play">
     </form><br><br><br>
   </div>
-  <div class="col s2">
+  <div class="col s2 s5ths">
     <form action="{% url 'sleeping' pet.id %}" method="POST">
       {% csrf_token %}
       {{ sleeping_form.as_p }}
