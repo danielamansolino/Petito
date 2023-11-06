@@ -6,10 +6,16 @@
     <div class="card-content">
         <form method="POST" action="{% url 'login' %}">
             {% csrf_token %}
-            {{ form.as_p }}
+            <label for="{{ form.username.id_for_label }}" class="custom-auth-form">{{ form.username.label_tag }}</label>
+            {{ form.username }}
+            <label for="{{ form.password.id_for_label }}" class="custom-auth-form">{{ form.password.label_tag }}</label>
+            {{ form.password }}
             <input type="hidden" name="next" value="{{ next }}">
             <button type="submit" class="btn">Log In</button>
         </form>
     </div>
 </div>
 {% endblock %}
+
+
+

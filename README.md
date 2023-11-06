@@ -21,7 +21,7 @@ Python, Django, AWS s3, Aseprite, Javascript, HTML, CSS, Materialize, PostgreSQL
 
 # 4. Getting Started with Petito: 
 
-    Link to Deployed App: TBD
+    Link to Deployed App: ![Petito](https://petito-vec4.onrender.com/)
 
     Link to Project's Trello Board: https://trello.com/b/n0wphGHe/project-3-sei
 
