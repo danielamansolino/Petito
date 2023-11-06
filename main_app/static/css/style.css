@@ -17,6 +17,10 @@ h1 {
   font-size: 30px;
 }
 
+h5 {
+  text-align: center;
+}
+
 
 .img_small {
   image-rendering: pixelated;
@@ -52,7 +56,8 @@ h1 {
 
 footer.page-footer {
   padding-top: 0;
-  text-align: right;
+  text-align: center;
+  font-size: 1.3rem
 }
 
 .s5ths{
