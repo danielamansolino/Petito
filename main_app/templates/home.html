@@ -9,8 +9,8 @@
 </div>
 </br>
 {% if not user.is_authenticated %}
-  <h5>Adopt your first petito > <a href="{% url 'signup' %}">Sign Up</a> </h5> 
-  <h5>Check on your petitos > <a href="{% url 'login' %}">Log In</a> </h5> 
+  <h5>Adopt your first petito > <a href="{% url 'signup' %} " style="color: whitesmoke;">Sign Up</a> </h5> 
+  <h5>Check on your petitos > <a href="{% url 'login' %}" style="color: whitesmoke;">Log In</a> </h5> 
 {% endif %}
 </br>
 {% endblock %}
