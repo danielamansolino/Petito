@@ -19,28 +19,42 @@
 </head>
 
 <body>
-  <header class="navbar-fixed ">
+  <header class="navbar-fixed">
     <nav>
       <div class="nav-wrapper teal accent-4">
-        <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Petito
-            </a></li>
-        </ul>
-        <ul class="right">
-          <li> <a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'about' %}">About</a></li>
-          {% if user.is_authenticated %}
-          <li><a href="{% url 'petitos_create' %}">Adopt a Petito</a></li>
-          <li><a href="{% url 'petitos' %}">My Petitos</a></li>
-          <li><a href="{% url 'logout' %}">Log Out</a></li>
-          {% else %}
-          <li><a href="{% url 'signup' %}">Sign Up</a></li>
-          <li><a href="{% url 'login' %}">Log In</a></li>
+        <div class="container">
+          <ul>
+            <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Petito</a></li>
+          </ul>
+          {% if user.is_authenticated and "mobile" in request.META.HTTP_USER_AGENT|lower %}
+             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           {% endif %}
-        </ul>
+          <ul class="right hide-on-small-only">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'petitos_create' %}">Adopt a Petito</a></li>
+              <li><a href="{% url 'petitos' %}">My Petitos</a></li>
+              <li><a href="{% url 'logout' %}">Log Out</a></li>
+            {% else %}
+              <li><a href="{% url 'signup' %}">Sign Up</a></li>
+              <li><a href="{% url 'login' %}">Log In</a></li>
+            {% endif %}
+          </ul>
+        </div>
       </div>
     </nav>
   </header>
+  <ul class="sidenav" id="mobile-demo">
+    {% if user.is_authenticated %}
+      <li><a href="{% url 'petitos_create' %}">Adopt a Petito</a></li>
+      <li><a href="{% url 'petitos' %}">My Petitos</a></li>
+      <li><a href="{% url 'logout' %}">Log Out</a></li>
+    {% else %}
+      <li><a href="{% url 'signup' %}">Sign Up</a></li>
+      <li><a href="{% url 'login' %}">Log In</a></li>
+    {% endif %}
+  </ul>
   <main class="container">
     {% block content %}
     {% endblock %}
@@ -48,6 +62,13 @@
   <footer class="page-footer teal accent-4">
     <div class="right">All Rights Reserved, &copy; 2023 Petito Collector &nbsp;</div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems);
+    });
+  </script>
 </body>
 
 </html>
