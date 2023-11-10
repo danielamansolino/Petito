@@ -10,7 +10,7 @@ body {
 main {
   flex: 1 0 auto;
 }
-@media only screen and (max-width: 992px) {
+/* @media only screen and (max-width: 992px) {
   .right.hide-on-med-and-down {
     display: none;
   }
@@ -20,7 +20,7 @@ main {
   .sidenav {
     display: block;
   }
-}
+} */
 
 
 h1 {
@@ -41,10 +41,6 @@ h5 {
 .custom-auth-form-list {
   font-size: 14px; 
 }
-
-
-
-
 
 .img_small {
   image-rendering: pixelated;

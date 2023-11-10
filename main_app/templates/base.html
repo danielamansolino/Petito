@@ -1,3 +1,5 @@
+<!-- base.html -->
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +18,40 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <style>
+    /* Add your custom styles here */
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+      background-color: darkgray;
+      font-family: 'VT323', monospace;
+      font-size: 30px;
+    }
+
+    main {
+      flex: 1 0 auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .left {
+      margin-left: 10px;
+    }
+
+    .right {
+      margin-right: 10px;
+    }
+
+    @media only screen and (max-width: 992px) {
+      .hide-on-mobile {
+        display: none !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -26,10 +62,9 @@
           <ul>
             <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Petito</a></li>
           </ul>
-          {% if user.is_authenticated and "mobile" in request.META.HTTP_USER_AGENT|lower %}
-             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          {% endif %}
-          <ul class="right hide-on-small-only">
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger hide-on-med-and-up"><i
+              class="material-icons">menu</i></a>
+          <ul class="right hide-on-small-only hide-on-med-and-up">
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
             {% if user.is_authenticated %}
@@ -45,20 +80,27 @@
       </div>
     </nav>
   </header>
+
   <ul class="sidenav" id="mobile-demo">
     {% if user.is_authenticated %}
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
       <li><a href="{% url 'petitos_create' %}">Adopt a Petito</a></li>
       <li><a href="{% url 'petitos' %}">My Petitos</a></li>
       <li><a href="{% url 'logout' %}">Log Out</a></li>
     {% else %}
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
       <li><a href="{% url 'signup' %}">Sign Up</a></li>
       <li><a href="{% url 'login' %}">Log In</a></li>
     {% endif %}
   </ul>
+
   <main class="container">
     {% block content %}
     {% endblock %}
   </main>
+
   <footer class="page-footer teal accent-4">
     <div class="right">All Rights Reserved, &copy; 2023 Petito Collector &nbsp;</div>
   </footer>
